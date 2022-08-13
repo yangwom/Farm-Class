@@ -1,17 +1,17 @@
 ﻿namespace Animals;
 
-class Cow
+public class Cow
 {
     public Guid Id = Guid.NewGuid();
-    public int Wheight;
+    public int Weight;
 
     public string Beed;
 
-    public Cow(int Wheight, string Beed)
+    public Cow(int Weight, string Beed)
     {
         try
         {
-            if (Wheight <= 0 || Beed == null || Beed == "")
+            if (Weight <= 0 || Beed == null || Beed == "")
             {
                 throw new ArgumentException();
             }
@@ -23,7 +23,7 @@ class Cow
         }
 
 
-     this.Wheight = Wheight;
+     this.Weight = Weight;
      this.Beed = Beed;
     }
 
