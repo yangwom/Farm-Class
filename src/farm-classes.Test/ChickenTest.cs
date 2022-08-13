@@ -30,7 +30,9 @@ public class ChickenTest
     [InlineData(6, 6)]
     public void TestChickenInstantiationWithoutMother(int eggsPerWeek, int expectedEggsPerWeek)
     {
-        throw new NotImplementedException();
+      var instace = new Chicken(eggsPerWeek);
+
+      instace.EggsPerWeek.Should().Be(expectedEggsPerWeek);
     }
 
     [Trait("Category", "3 - Crie uma classe Chicken")]
@@ -38,7 +40,9 @@ public class ChickenTest
     [MemberData(nameof(ValidChickenData))]
     public void TestChickenInstantiationWithMother(int eggsPerWeek, int expectedEggsPerWeek, Chicken mother)
     {
-        throw new NotImplementedException();
+        var instace = new Chicken(eggsPerWeek, mother);
+
+        instace.EggsPerWeek.Should().Be(expectedEggsPerWeek);
     }
 
     [Trait("Category", "3 - Crie uma classe Chicken")]
@@ -46,6 +50,8 @@ public class ChickenTest
     [MemberData(nameof(InvalidChickenData))]
     public void TestChickenInstantiationWithNegativeEggsPerWeek(int eggsPerWeek, Chicken mother)
     {
-        throw new NotImplementedException();
+        Action act = () => new Chicken(eggsPerWeek, mother);
+
+        act.Should().Throw<ArgumentException>();
     }
 }
